@@ -15,16 +15,16 @@ This repository provides the codes for reproducing the results and figures of th
 ### Installation
 1. **Clone the repository or download the zip**:
 
-2. **Download data**
-
-The original data can be found at [dropbox](https://www.dropbox.com/sh/p1swf94hs2pa47g/AACWTAXGlgrjc1GtOaNKURCFa?dl=0), published along with the [paper](https://doi.org/10.1002/rse2.242). Please download the folder "dset_allspec_150" and unpack its content in a path called "data/original/all_species" within the repository. If you save it at a different place, you need to change the paths to load the data in the script and notebooks.
-
 2. **Set up the environment**:
    - Using Conda:
      ```bash
      conda env create -f environment.yml
      conda activate your-env-name
      ```
+
+### Download data
+
+The original data can be found at [dropbox](https://www.dropbox.com/sh/p1swf94hs2pa47g/AACWTAXGlgrjc1GtOaNKURCFa?dl=0), published along with the [paper](https://doi.org/10.1002/rse2.242). Please download the folder "dset_allspec_150" and unpack its content in a path called "data/original/all_species/" within the repository. If you save it at a different place, you need to change the paths within the codes to load the data.
 
 ### Usage
 The folder scripts contains the Python scripts to process the data and create new data products. The folder notebooks contains jupyter notebooks to produce the figures. First, run the scripts according to the numbering and then run the notebooks according to the numbering.
