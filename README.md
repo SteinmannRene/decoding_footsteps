@@ -5,6 +5,7 @@ This repository provides the codes for reproducing the results and figures of th
 
 ### Table of Contents
 1. [Installation](#installation)
+2. [Download data](#download)
 3. [Usage](#usage)
 4. [Project Structure](#project-structure)
 5. [Contributing](#contributing)
@@ -13,6 +14,10 @@ This repository provides the codes for reproducing the results and figures of th
 
 ### Installation
 1. **Clone the repository or download the zip**:
+
+2. **Download data**
+
+The original data can be found at [dropbox](https://www.dropbox.com/sh/p1swf94hs2pa47g/AACWTAXGlgrjc1GtOaNKURCFa?dl=0), published along with the [paper](https://doi.org/10.1002/rse2.242). Please download the folder "dset_allspec_150" and unpack its content in a path called "data/original/all_species" within the repository. If you save it at a different place, you need to change the paths to load the data in the script and notebooks.
 
 2. **Set up the environment**:
    - Using Conda:
@@ -31,13 +36,9 @@ decoding_footsteps/
 │
 ├── data/                   # Folder for storing datasets and results (not included in the repository)
 │
-├── notebooks/                 # Trained models (saved during training)
+├── notebooks/              # contains notebooks to create figures and results
 │
-├── scripts/                    # Source code folder
-│   ├── preprocess_data.py  # Script to preprocess the data
-│   ├── train_model.py      # Script to train the SVM models
-│   ├── evaluate_model.py   # Script to evaluate the models and generate confusion matrices
-│   └── utils.py            # Utility functions (e.g., reading data, filtering)
+├── scripts/                # contains scripts to preprocess dataset, calculate scattering coefficient, etc.
 │
 ├── environment.yml         # Conda environment configuration
 ├── README.md               # This readme file
