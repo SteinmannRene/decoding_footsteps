@@ -1,34 +1,20 @@
-# Decoding footsteps
+# Decoding the Footsteps of the African Savanna: Classifying Wildlife Using Seismic Signals and Machine Learning
 
 ### Overview
-This project uses machine learning to classify wildlife species based on seismogram data. It processes seismographic signals and applies a Support Vector Machine (SVM) model to detect footfalls of different species.
+This repository provides the codes for reproducing the results and figures of the paper.
 
 ### Table of Contents
-1. [Features](#features)
-2. [Installation](#installation)
+1. [Installation](#installation)
 3. [Usage](#usage)
 4. [Project Structure](#project-structure)
 5. [Contributing](#contributing)
 6. [License](#license)
 7. [Contact](#contact)
 
-### Features
-- **Species Classification**: Detect and classify different wildlife species using seismographic signals.
-- **Distance-Based Filtering**: Filter signals by maximum distance and species before model training.
-- **Station-Specific Models**: Train models separately for each station in the provided list of stations.
-
 ### Installation
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
-   cd your-repo-name
-   ```
+1. **Clone the repository or download the zip**:
 
 2. **Set up the environment**:
-   - Using pip:
-     ```bash
-     pip install -r requirements.txt
-     ```
    - Using Conda:
      ```bash
      conda env create -f environment.yml
@@ -36,46 +22,26 @@ This project uses machine learning to classify wildlife species based on seismog
      ```
 
 ### Usage
-1. **Preprocess the Data**: 
-   - Edit the parameters in the configuration file: `config.py`.
-   - Run the preprocessing script:
-     ```bash
-     python preprocess_data.py
-     ```
-
-2. **Train the Model**:
-   - Train the SVM model for multiple stations:
-     ```bash
-     python train_model.py --stations 'ETA00, STA02, NWP05' --max_distance 50
-     ```
-
-3. **Evaluate the Model**:
-   - Evaluate the trained model for a specific station:
-     ```bash
-     python evaluate_model.py --stations 'NWP05' --max_distance 50
-     ```
+The folder scripts contains the Python scripts to process the data and create new data products. The folder notebooks contains jupyter notebooks to produce the figures. First, run the scripts according to the numbering and then run the notebooks according to the numbering.
 
 ### Project Structure
 
 ```bash
-your-repo-name/
+decoding_footsteps/
 │
-├── data/                   # Folder for storing datasets and results
-│   ├── raw/                # Raw data (input files)
-│   └── processed/          # Preprocessed data
+├── data/                   # Folder for storing datasets and results (not included in the repository)
 │
-├── models/                 # Trained models (saved during training)
+├── notebooks/                 # Trained models (saved during training)
 │
-├── src/                    # Source code folder
+├── scripts/                    # Source code folder
 │   ├── preprocess_data.py  # Script to preprocess the data
 │   ├── train_model.py      # Script to train the SVM models
 │   ├── evaluate_model.py   # Script to evaluate the models and generate confusion matrices
 │   └── utils.py            # Utility functions (e.g., reading data, filtering)
 │
-├── requirements.txt        # Pip requirements file
 ├── environment.yml         # Conda environment configuration
 ├── README.md               # This readme file
-└── LICENSE                 # License file
+└── license.txt             # License file
 ```
 
 ### Contributing
@@ -96,5 +62,3 @@ For any questions or support, please contact:
 - GitHub: [@yourusername](https://github.com/yourusername)
 
 ---
-
-You can adjust the sections like the project name, repository URL, or the contact details as needed.
