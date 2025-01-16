@@ -18,7 +18,7 @@ def load_data(filepath):
     xr.Dataset: The loaded dataset.
     """
     
-    return xr.open_dataset(filepath+'modified_dataset_glic.nc')
+    return xr.open_dataset(filepath+'modified_dataset.nc')
 
 def normalize_chunks(dset):
     """
@@ -171,14 +171,15 @@ def save_dataset(dset, savename, path2data):
         dset: The dataset to save.
     """
     dset.to_netcdf(f'{path2data}{savename}.nc')
+    print(f'Dataset saved as {path2data}{savename}.nc')
 
 # %%
 # global variables
-PATH2DATA = '/home/steinre/seissavanna/scattering_transform/'
+PATH2DATA = '/home/steinre/decoding_footsteps/data/'
 NUM_WORKERS = 24
-BATCH_SIZE = 64
+BATCH_SIZE = 16
 FS = 200  # Sampling rate
-BINS_0, BINS_1 = 32, 32
+BINS_0, BINS_1 = 64, 64
 SAVENAME = f'scattering_coefficients_{BINS_0}_{BINS_1}'
 
 # %%
@@ -200,5 +201,3 @@ dset = add_scattering_coefficients_to_dset(dset, wavelet_params, scat_coef_0, sc
 
 # Save the updated dataset
 save_dataset(dset, SAVENAME, PATH2DATA)
-
-

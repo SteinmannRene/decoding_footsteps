@@ -62,7 +62,7 @@ def replace_station_integers_with_labels(dset, station_dict_path):
         logging.error(f"Error replacing station integers: {e}")
         raise
 
-def replace_species_integers_with_labels(dset, species_names):
+def replace_integers_with_labels(dset, species_names, family_names):
     """Replace species integer values in the dataset with species labels.
 
     Args:
@@ -76,16 +76,23 @@ def replace_species_integers_with_labels(dset, species_names):
         species_values = dset['class'].to_numpy()
         unique_values = np.unique(species_values)
 
-        if len(species_names) != len(unique_values):
-            raise ValueError("Number of species names must match the number of unique values.")
+        if len(species_names) != len(unique_values) and len(family_names) != len(unique_values):
+            raise ValueError("Number of labels must match the number of unique values.")
         
         species_dict = dict(zip(species_names, unique_values))
+        family_dict = dict(zip(family_names, unique_values))
         species_labels = np.empty(len(species_values), dtype='U10')
+        family_labels = np.empty(len(species_values), dtype='U14')
+
         for key, value in species_dict.items():
             species_labels[species_values == value] = key
 
+        for key, value in family_dict.items():
+            family_labels[species_values == value] = key
+
         dset = dset.drop_vars('class')
         dset['species'] = xr.DataArray(species_labels, dims='traces')
+        dset['family'] = xr.DataArray(family_labels, dims='traces')
         logging.info("Species integers replaced with labels.")
         
         return dset
@@ -183,12 +190,17 @@ def main():
             'dikdik', 'giraffe', 'hyena', 'rabbit', 'zebra', 'hippo'
         ]
 
+        family_names = [
+            'HOMINIDAE', 'ELEPHANTIDAE', 'SUIDAE', 'FELIDAE', 'NUMIDIDAE',
+            'BOVIDAE', 'GIRAFFIDAE', 'HYAENIDAE', 'LEPORIDAE', 'EQUIDAE', 'HIPPOPOTAMIDAE'
+        ]
+
         # Load the dataset
         dset = load_dataset(dataset_path)
 
         # Replace station and species integers with labels
         dset = replace_station_integers_with_labels(dset, station_dict_path)
-        dset = replace_species_integers_with_labels(dset, species_names)
+        dset = replace_integers_with_labels(dset, species_names, family_names)
 
         # Update dataset with images and signal energy
         dset = update_dataset_with_images_and_energy(dset)
