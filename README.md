@@ -1,5 +1,9 @@
 # Decoding the Footsteps of the African Savanna: Classifying Wildlife Using Seismic Signals and Machine Learning
 
+
+[![DOI](https://zenodo.org/badge/865228802.svg)](https://doi.org/10.5281/zenodo.14929722)
+
+
 ### Overview
 This repository provides the codes for reproducing the results and figures of the paper Decoding the Footsteps of the African Savanna: Classifying Wildlife Using Seismic Signals and Machine Learning by Steinmann et al. 2024 published in Methods in Ecology and Evolution.
 
