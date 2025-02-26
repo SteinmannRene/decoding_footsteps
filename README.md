@@ -45,21 +45,14 @@ decoding_footsteps/
 └── license.txt             # License file
 ```
 
-### Contributing
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Commit your changes (`git commit -m 'Add a feature'`).
-4. Push to the branch (`git push origin feature-branch`).
-5. Open a pull request.
-
 ### License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ### Contact
 For any questions or support, please contact:
 
-- Name: Your Name
-- Email: your.email@example.com
-- GitHub: [@yourusername](https://github.com/yourusername)
+- Name: Rene Steinmann
+- Email: rene.steinmann@gfz.de
+- GitHub: [@SteinmannRene](https://github.com/SteinmannRene)
 
 ---
